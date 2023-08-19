@@ -77,42 +77,9 @@ a. Add the uni_links dependency in your `pubspec.yaml`:
 dependencies:
   flutter:
     sdk: flutter
-  uni_links: ^0.5.4
+  go_router: ^10.1.0
 ```
-b. Create a new Dart file (e.g., `deep_link_handler.dart`) to handle deep links. This file will contain the logic to parse and handle the incoming deep link. Here's an example of how to set up the deep link handler:
-```
-import 'package:uni_links/uni_links.dart';
-
-class DeepLinkHandler {
-  static Future<void> initUniLinks() async {
-    String initialLink;
-
-    // Get the initial deep link when the app is launched
-    try {
-      initialLink = await getInitialLink();
-      _handleDeepLink(initialLink);
-    } catch (e) {
-      print('Error getting initial link: $e');
-    }
-
-    // Listen for incoming deep links while the app is running
-    Uri uri;
-    getLinksStream().listen((Uri newUri) {
-      if (uri != newUri) {
-        uri = newUri;
-        _handleDeepLink(uri.toString());
-      }
-    });
-  }
-
-  static void _handleDeepLink(String link) {
-    // Parse the deep link and navigate to the appropriate screen
-    // You can use a navigation package like `navigator` or `flutter_bloc` for navigation
-    // Example: Navigator.pushNamed(context, '/details?id=123');
-  }
-}
-```
-c. Initialize the deep link handler in your app's `main.dart` file. Call the `initUniLinks` method before calling runApp:
+b. Initialize the router in your app's `main.dart` file.
 ```
 import 'package:flutter/material.dart';
 import 'deep_link_handler.dart';
@@ -126,5 +93,7 @@ void main() {
 
 ## Testing
 ```
-adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "YASHMAKAN00001://yashmakan.co.in"'
+adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "https://yashmakan.co.in/red"'
 ```
+or
+click link [https://yashmakan.co.in/red](https://yashmakan.co.in/red) from phone to check.

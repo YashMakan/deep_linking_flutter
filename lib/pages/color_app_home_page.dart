@@ -1,6 +1,4 @@
-import 'package:deep_linking_flutter/deep_link_handler.dart';
 import 'package:flutter/material.dart';
-
 import 'color_detail_page.dart';
 
 class ColorAppHomePage extends StatefulWidget {
@@ -11,18 +9,6 @@ class ColorAppHomePage extends StatefulWidget {
 }
 
 class _ColorAppHomePageState extends State<ColorAppHomePage> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      DeepLinkHandler.instance.stream!.listen((Uri? uri) {
-        if (uri != null) {
-          DeepLinkHandler.instance.handleDeepLink(context, uri.toString());
-        }
-      });
-    });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
