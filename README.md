@@ -1,7 +1,8 @@
 
 # Flutter Deep Linking
 
-A flutter project to understand the whole process to setup deeplinks.
+[![YouTube Video](https://img.youtube.com/vi/_13UW57UmQA/maxresdefault.jpg)](https://www.youtube.com/watch?v=_13UW57UmQA)
+
 
 ## Android Configuration:
 a. Open your Android project in Android Studio.
